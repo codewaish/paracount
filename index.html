@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <title>Word Counter</title>
+
+  <!-- CSS styles included within a <style> block -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    #root {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    p {
+      text-align: right;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <h1>Word Counter</h1>
+    <textarea id="inputText" rows="10" cols="50" oninput="countWords()"></textarea>
+    <p>Word Count: <span id="wordCount">0</span></p>
+  </div>
+
+  <!-- JavaScript code included within a <script> block -->
+  <script>
+    function countWords() {
+      const inputText = document.getElementById('inputText');
+      const wordCount = document.getElementById('wordCount');
+      
+      const words = inputText.value.split(/\s+/).filter(word => word !== ''); // Split by whitespace and remove empty strings
+      wordCount.textContent = words.length;
+    }
+  </script>
+</body>
+</html>
+
